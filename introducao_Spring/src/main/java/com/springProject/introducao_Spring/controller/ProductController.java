@@ -2,15 +2,17 @@ package com.springProject.introducao_Spring.controller;
 
 
 import com.springProject.introducao_Spring.model.Product;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
 
 @RestController
 @RequestMapping("products")
 public class ProductController {
 
-    public void saveProduct(Product product){
-
+    @PostMapping("/product")
+    public Product saveProduct(@RequestBody Product product){
+        System.out.println("Saved product: " + product);
+        return product;
     }
 
 }
