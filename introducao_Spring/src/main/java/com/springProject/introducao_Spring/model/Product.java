@@ -1,11 +1,27 @@
 package com.springProject.introducao_Spring.model;
 
+import jakarta.persistence.*;
+import lombok.Setter;
+import org.hibernate.annotations.ValueGenerationType;
+
+@Entity
+@Table
 public class Product {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.UUID)
+    @Column
     private String id;
+
+    @Column
     private String name;
+
+    @Column
     private String description;
+
+    @Column
     private Double price;
+
 
     public Product(){
 
