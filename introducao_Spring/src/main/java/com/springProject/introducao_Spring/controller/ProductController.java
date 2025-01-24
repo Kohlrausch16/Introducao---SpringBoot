@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping
@@ -16,9 +17,13 @@ public class ProductController {
 
 
     @GetMapping("/product")
-    public List<Product> getProduct(){
-        List<Product> list = productRepository.findAll();
-        return list;
+    public List<Product> getProducts(){
+        return productRepository.findAll();
+    }
+
+    @GetMapping("/product/{id}")
+    public Optional<Product> getProductByID(@PathVariable String id){
+        return productRepository.findById(id);
     }
 
     @PostMapping("/product")
