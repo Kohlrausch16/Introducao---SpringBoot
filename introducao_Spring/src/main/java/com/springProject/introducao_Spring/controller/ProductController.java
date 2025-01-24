@@ -32,4 +32,9 @@ public class ProductController {
         return product;
     }
 
+    @DeleteMapping ("/product/{id}")
+    public String deleteProduct(@PathVariable String id){
+        productRepository.deleteById(id);
+        return "Registro deletado";
+    }
 }
